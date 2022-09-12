@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router"
 import VueDirective from "@/教材/VueDirective.vue"
-import slot from "@/教材/slot-props/slot.vue"
-import testApp from "@/個人勉強用/testApp.vue"
+import slot from "@/教材/slot-props/slot/slot.vue"
+import testApp from "@/教材/slot-props/testApp.vue"
 import GoogleLogin from "@/教材/ログイン認証/GoogleLogin.vue"
 
 const routes = [
