@@ -48,17 +48,55 @@
     <!-- slot：３ 始まり -->
     <section></section>
     <!-- slot：３ 終わり -->
+
+    <!-- props：１ 始まり -->
+    <section class="props-one" style="margin-bottom: 50px">
+      <h1>props：１(簡単な使い方)</h1>
+      <div>
+        <propsBase name="トートバッグ" />
+      </div>
+    </section>
+    <!-- props：１ 終わり -->
+
+    <!-- props：２ 始まり -->
+    <section class="props-one" style="margin-bottom: 50px">
+      <h1>props：２(v-bind使ってみる１)</h1>
+      <div>
+        <propsBase v-bind:name="productName" />
+      </div>
+    </section>
+    <!-- props：２ 終わり -->
+
+    <!-- props：３ 始まり -->
+    <section class="props-one" style="margin-bottom: 50px">
+      <h1>props：３(v-bind使ってみる２)</h1>
+      <div>
+        <propsStyle bgColor="orange">オレンジ</propsStyle>
+        <propsStyle bgColor="red">赤</propsStyle>
+      </div>
+    </section>
+    <!-- props：３ 終わり -->
   </div>
 </template>
 
 <script>
-import MainBtn from "@/個人勉強用/MainBtn.vue"
-import MainLayout from "@/個人勉強用/MainLayout.vue"
+import MainBtn from "@/教材/slot-props/slot/MainBtn.vue"
+import MainLayout from "@/教材/slot-props/slot/MainLayout.vue"
+import propsBase from "@/教材/slot-props/props/propsBase.vue"
+import propsStyle from "@/教材/slot-props/props/propsStyle.vue"
 
 export default {
   components: {
     MainBtn,
     MainLayout,
+    propsBase,
+    propsStyle,
+  },
+  data() {
+    return {
+      inputColor: "",
+      productName: "トートバック",
+    }
   },
 }
 </script>
