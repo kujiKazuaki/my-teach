@@ -1,5 +1,6 @@
 <!-- <template>
-  <div class="allContainer">
+  <div class="allContainer" style="text-align: center">
+    <h1>「text-size」or「text-color」</h1>
     <input v-model="inputclass" />
     <div>
       <p v-bind:class="inputText">変化</p>
@@ -39,10 +40,11 @@ export default {
 </style> -->
 
 <template>
-  <div class="allContainer">
+  <div class="allContainer" style="text-align: center">
+    <h1>「text-size」or「text-color」</h1>
     <input v-model="inputclass" />
     <div>
-      <p v-bind:class="inputText">変化</p>
+      <p v-bind:class="inputclass">変化</p>
     </div>
   </div>
 </template>
@@ -53,17 +55,6 @@ export default {
     return {
       inputclass: "",
     }
-  },
-  computed: {
-    inputText() {
-      if (this.inputclass === "text-size") {
-        return "text-size"
-      } else if (this.inputclass === "text-color") {
-        return "text-color"
-      } else {
-        return console.error("エラー")
-      }
-    },
   },
 }
 </script>
