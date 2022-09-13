@@ -3,7 +3,9 @@
     <nav>
       <router-link to="VueDirective">VueDirective</router-link>｜
       <!-- <router-link to="slot">slot</router-link>｜ -->
-      <router-link to="/GoogleLogin">GoogleLogin</router-link>
+      <router-link to="/GoogleLogin">GoogleLogin</router-link>｜
+      <router-link to="/classHenkou">classHenkou</router-link>｜
+      <router-link to="/slotpropsApp">slot-propsApp</router-link>
     </nav>
     <router-view />
   </div>
