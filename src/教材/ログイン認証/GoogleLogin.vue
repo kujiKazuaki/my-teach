@@ -2,10 +2,13 @@
   <div class="allContainer">
     <section>
       <h1>ログイン認証</h1>
-      <button v-on:click="GoogleButton">
-        <p v-if="loginName">ログイン</p>
-        <p v-else>ログアウト</p>
-      </button>
+      <div class="loginBtn">
+        <button v-on:click="GoogleButton">
+          <p v-if="loginName">ログイン</p>
+          <p v-else>ログアウト</p>
+        </button>
+        <button v-on:click="AcountDeletebtn" v-if="acountDelet">削除</button>
+      </div>
     </section>
     <section class="display">
       <img :src="userImg" />
@@ -14,6 +17,32 @@
         <p>{{ userEmail }}</p>
       </div>
     </section>
+
+    <!-- メモ投稿 始まり -->
+    <section class="memoArea">
+      <div class="commentArea">
+        <input type="text" v-model="inputMemo" />
+        <div>
+          <button @click="addBtn">追加</button>
+          <button @click="selectBtn">選択削除</button>
+          <button @click="allDeleteBtn">すべて消す</button>
+        </div>
+      </div>
+      <ul>
+        <li
+          v-for="(comment, commentIndex) in comments"
+          :key="commentIndex"
+          style="list-style-type: none"
+        >
+          <label class="commentItem">
+            <input type="checkbox" v-model="comment.done" />
+            <p :class="{ done: comment.done }">{{ comment.text }}</p>
+            <button v-on:click="deleteBtn(commentIndex)">削除</button>
+          </label>
+        </li>
+      </ul>
+    </section>
+    <!-- メモ投稿 終わり -->
   </div>
 </template>
 
@@ -24,8 +53,16 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
   signOut,
+  deleteUser,
 } from "firebase/auth"
-import { setDoc, doc } from "firebase/firestore"
+import {
+  setDoc,
+  doc,
+  collection,
+  addDoc,
+  updateDoc,
+  deleteField,
+} from "firebase/firestore"
 import { db } from "@/firebase.js"
 
 export default {
@@ -35,6 +72,9 @@ export default {
       userName: "",
       userEmail: "",
       loginName: true,
+      inputMemo: "",
+      comments: [],
+      acountDelet: false,
     }
   },
   methods: {
@@ -49,7 +89,7 @@ export default {
             credential.accessToken
             result.user
             onAuthStateChanged(auth, async (user) => {
-              if (!user.exists) {
+              if (user !== null) {
                 const displayName = user.displayName
                 const email = user.email
                 const photoURL = user.photoURL
@@ -66,8 +106,8 @@ export default {
                 this.userName = displayName
               }
             })
-            alert("ログイン成功")
             this.loginName = false
+            this.acountDelet = true
           })
           .catch((error) => {
             GoogleAuthProvider.credentialFromError(error)
@@ -88,7 +128,92 @@ export default {
             console.log(error)
           })
         this.loginName = true
+        this.acountDelet = false
       }
+    },
+    AcountDeletebtn() {
+      if (window.confirm("本当に削除しますか？")) {
+        const auth = getAuth()
+        const user = auth.currentUser
+
+        if (user !== null) {
+          deleteUser(user)
+            .then(async () => {
+              const userData = {
+                userName: user.displayName,
+                userEmail: user.email,
+                userImage: user.photoURL,
+              }
+              console.log(userData)
+              const Data = doc(db, "users", userData)
+              await updateDoc(Data, {
+                capital: deleteField(),
+              })
+            })
+            .catch((error) => {
+              console.log(error)
+            })
+          signOut(auth)
+            .then(() => {
+              // Sign-out successful.
+              alert("アカウントを削除しました")
+              this.userImg = ""
+              this.userEmail = ""
+              this.userName = ""
+              this.loginName = true
+              this.acountDelet = false
+            })
+            .catch((error) => {
+              // An error happened.
+              console.log(error)
+            })
+        }
+      }
+    },
+    addBtn() {
+      if (this.inputMemo !== "") {
+        this.comments.push({ text: this.inputMemo })
+        console.log(this.inputMemo)
+        this.inputMemo = ""
+
+        const auth = getAuth()
+        const user = auth.currentUser
+        if (user !== null) {
+          user.providerData.forEach(async (profile) => {
+            console.log("  Name: " + profile.displayName)
+            console.log("  Email: " + profile.email)
+            console.log("  Photo URL: " + profile.photoURL)
+            let memo = {
+              text: this.inputMemo,
+              userName: profile.displayName,
+              userEmail: profile.email,
+              userImage: profile.photoURL,
+            }
+            await addDoc(collection(db, "userComment"), memo)
+          })
+        }
+      } else {
+        alert("コメントを入力してください")
+      }
+    },
+    selectBtn() {
+      if (window.confirm("本当に削除しますか？")) {
+        let remains = []
+        for (let i = 0; i < this.comments.length; i++) {
+          if (!this.comments[i].done) {
+            remains.push(this.comments[i])
+          }
+        }
+        this.comments = remains
+      }
+    },
+    allDeleteBtn() {
+      if (window.confirm("本当に削除してもいいですか？") === true) {
+        this.comments = []
+      }
+    },
+    deleteBtn(commentIndex) {
+      this.comments.splice(commentIndex, 1)
     },
   },
 }
@@ -97,5 +222,29 @@ export default {
 <style scoped>
 .allContainer {
   text-align: center;
+}
+
+.commentItem {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.done {
+  text-decoration: line-through;
+}
+button {
+  font-weight: bold;
+  padding: 5px;
+  margin: 0 2px;
+}
+.loginBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loginBtn button {
+  font-size: 15px;
+  padding-top: 0px;
 }
 </style>
