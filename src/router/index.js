@@ -4,6 +4,8 @@ import slot from "@/教材/slot-props/slot/slot.vue"
 import slotpropsApp from "@/教材/slot-props/Slot-propsApp.vue"
 import GoogleLogin from "@/教材/ログイン認証/GoogleLogin.vue"
 import classHenkou from "@/個人勉強用/classHenkou.vue"
+import calendarApp from "@/個人勉強用/calendarApp.vue"
+import ColorApp from "@/個人勉強用/ColorApp.vue"
 
 const routes = [
   {
@@ -30,6 +32,16 @@ const routes = [
     path: "/classHenkou",
     name: "classHenkou",
     component: classHenkou,
+  },
+  {
+    path: "/calendarApp",
+    name: "calendarApp",
+    component: calendarApp,
+  },
+  {
+    path: "/ColorApp",
+    name: "ColorApp",
+    component: ColorApp,
   },
 ]
 
