@@ -19,7 +19,7 @@
     </section>
 
     <!-- メモ投稿 始まり -->
-    <section class="memoArea">
+    <section class="memoArea" v-if="memoArea">
       <div class="commentArea">
         <input type="text" v-model="inputMemo" />
         <div>
@@ -62,6 +62,10 @@ import {
   addDoc,
   updateDoc,
   deleteField,
+  // getDoc,
+  getDocs,
+  // query,
+  // where,
 } from "firebase/firestore"
 import { db } from "@/firebase.js"
 
@@ -75,7 +79,53 @@ export default {
       inputMemo: "",
       comments: [],
       acountDelet: false,
+      memoArea: false,
     }
+  },
+  created() {
+    const auth = getAuth()
+    onAuthStateChanged(auth, async (user) => {
+      if (user !== null) {
+        const user = auth.currentUser
+        const displayName = user.displayName
+        const email = user.email
+        const photoURL = user.photoURL
+        await setDoc(doc(db, "users", user.uid), {
+          userName: displayName,
+          userEmail: email,
+          userImg: photoURL,
+        })
+        this.userImg = photoURL
+        this.userEmail = email
+        this.userName = displayName
+        this.loginName = false
+        this.acountDelet = true
+        this.memoArea = true
+
+        // const docRef = doc(db, "users", "user.uid")
+        // const docSnap = await getDoc(docRef)
+
+        // if (docSnap.exists()) {
+        //   console.log("test")
+        //   this.user = docSnap.data()
+        // } else {
+        //   console.log("No such document!")
+        // }
+
+        // const querySnapshot = await getDocs(collection(db, "userComment"))
+        // querySnapshot.forEach(async (doc) => {
+        //   const userid = await getDoc(docRef)
+        //   console.log(userid.data())
+        //   console.log(doc.data())
+        // })
+
+        getDocs(collection(db, "userComment")).then((docs) => {
+          docs.forEach((doc) => {
+            this.comments.push({ text: doc.id, ...doc.data() })
+          })
+        })
+      }
+    })
   },
   methods: {
     GoogleButton() {
@@ -93,9 +143,6 @@ export default {
                 const displayName = user.displayName
                 const email = user.email
                 const photoURL = user.photoURL
-                console.log(displayName)
-                console.log(email)
-                console.log(photoURL)
                 await setDoc(doc(db, "users", user.uid), {
                   userName: displayName,
                   userEmail: email,
@@ -108,6 +155,7 @@ export default {
             })
             this.loginName = false
             this.acountDelet = true
+            this.memoArea = true
           })
           .catch((error) => {
             GoogleAuthProvider.credentialFromError(error)
@@ -129,6 +177,7 @@ export default {
           })
         this.loginName = true
         this.acountDelet = false
+        this.memoArea = false
       }
     },
     AcountDeletebtn() {
@@ -145,9 +194,9 @@ export default {
                 userImage: user.photoURL,
               }
               console.log(userData)
-              const Data = doc(db, "users", userData)
+              const Data = doc(db, "users", user)
               await updateDoc(Data, {
-                capital: deleteField(),
+                userData: deleteField(),
               })
             })
             .catch((error) => {
@@ -162,6 +211,7 @@ export default {
               this.userName = ""
               this.loginName = true
               this.acountDelet = false
+              this.memoArea = false
             })
             .catch((error) => {
               // An error happened.
@@ -174,15 +224,11 @@ export default {
       if (this.inputMemo !== "") {
         this.comments.push({ text: this.inputMemo })
         console.log(this.inputMemo)
-        this.inputMemo = ""
 
         const auth = getAuth()
         const user = auth.currentUser
         if (user !== null) {
           user.providerData.forEach(async (profile) => {
-            console.log("  Name: " + profile.displayName)
-            console.log("  Email: " + profile.email)
-            console.log("  Photo URL: " + profile.photoURL)
             let memo = {
               text: this.inputMemo,
               userName: profile.displayName,
@@ -192,6 +238,7 @@ export default {
             await addDoc(collection(db, "userComment"), memo)
           })
         }
+        this.inputMemo = ""
       } else {
         alert("コメントを入力してください")
       }
@@ -233,16 +280,19 @@ export default {
 .done {
   text-decoration: line-through;
 }
+
 button {
   font-weight: bold;
   padding: 5px;
   margin: 0 2px;
 }
+
 .loginBtn {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .loginBtn button {
   font-size: 15px;
   padding-top: 0px;
