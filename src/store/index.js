@@ -1,25 +1,29 @@
 import { createStore } from "vuex"
 
 export default createStore({
-  state: {
-    // 使いたいデータを書く
-    user: null,
-    name: null,
-    image: null,
+  state: () => {
+    return {
+      message: "count number.",
+      counter: 0,
+    }
   },
-  getters: {},
   mutations: {
-    // stateの中にある値を更新するコードを書く
-    updateUserInfo(state, user) {
-      state.user = user
+    count: (state, n) => {
+      state.counter += n
     },
-    updateUserName(state, userName) {
-      state.name = userName
+    say: (state, msg) => {
+      state.message = msg
     },
-    updateUserImage(state, userImage) {
-      state.image = userImage
+    reset: (state) => {
+      state.counter = 0
+      state.message = "reset!!"
     },
   },
-  actions: {},
-  modules: {},
+  actions: {
+    doit: (context) => {
+      var n = Math.floor(Math.random() * 10)
+      context.commit("count", n)
+      context.commit("say", "add " + n + "!")
+    },
+  },
 })
