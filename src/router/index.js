@@ -7,6 +7,7 @@ import classHenkou from "@/個人勉強用/classHenkou.vue"
 import calendarApp from "@/個人勉強用/calendarApp.vue"
 import ColorApp from "@/個人勉強用/ColorApp.vue"
 import vuex from "@/個人勉強用/vuex.vue"
+import counterApp from "@/個人勉強用/counterApp.vue"
 
 const routes = [
   {
@@ -48,6 +49,11 @@ const routes = [
     path: "/vuex",
     name: "vuex",
     component: vuex,
+  },
+  {
+    path: "/counterApp",
+    name: "counterApp",
+    component: counterApp,
   },
 ]
 

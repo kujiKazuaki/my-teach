@@ -274,6 +274,7 @@ export default {
 <style scoped>
 .allContainer {
   text-align: center;
+  user-select: noen;
 }
 
 .commentItem {
