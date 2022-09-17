@@ -6,6 +6,8 @@ import GoogleLogin from "@/教材/ログイン認証/GoogleLogin.vue"
 import classHenkou from "@/個人勉強用/classHenkou.vue"
 import calendarApp from "@/個人勉強用/calendarApp.vue"
 import ColorApp from "@/個人勉強用/ColorApp.vue"
+import vuex from "@/個人勉強用/vuex.vue"
+import counterApp from "@/個人勉強用/counterApp.vue"
 
 const routes = [
   {
@@ -42,6 +44,16 @@ const routes = [
     path: "/ColorApp",
     name: "ColorApp",
     component: ColorApp,
+  },
+  {
+    path: "/vuex",
+    name: "vuex",
+    component: vuex,
+  },
+  {
+    path: "/counterApp",
+    name: "counterApp",
+    component: counterApp,
   },
 ]
 

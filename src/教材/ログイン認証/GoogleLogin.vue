@@ -64,8 +64,8 @@ import {
   deleteField,
   // getDoc,
   getDocs,
-  // query,
-  // where,
+  query,
+  where,
 } from "firebase/firestore"
 import { db } from "@/firebase.js"
 
@@ -85,7 +85,7 @@ export default {
   created() {
     const auth = getAuth()
     onAuthStateChanged(auth, async (user) => {
-      if (user !== null) {
+      if (user) {
         const user = auth.currentUser
         const displayName = user.displayName
         const email = user.email
@@ -102,28 +102,17 @@ export default {
         this.acountDelet = true
         this.memoArea = true
 
-        // const docRef = doc(db, "users", "user.uid")
-        // const docSnap = await getDoc(docRef)
-
-        // if (docSnap.exists()) {
-        //   console.log("test")
-        //   this.user = docSnap.data()
-        // } else {
-        //   console.log("No such document!")
-        // }
-
-        // const querySnapshot = await getDocs(collection(db, "userComment"))
-        // querySnapshot.forEach(async (doc) => {
-        //   const userid = await getDoc(docRef)
-        //   console.log(userid.data())
-        //   console.log(doc.data())
-        // })
-
-        getDocs(collection(db, "userComment")).then((docs) => {
-          docs.forEach((doc) => {
-            this.comments.push({ text: doc.id, ...doc.data() })
-          })
+        const q = query(
+          collection(db, "userComment"),
+          where("userEmail", "==", email)
+        )
+        const querySnapshot = await getDocs(q)
+        console.log(querySnapshot)
+        querySnapshot.forEach((doc) => {
+          this.comments.push({ text: doc.data().text })
         })
+      } else {
+        console.log("ユーザーなし")
       }
     })
   },
@@ -139,7 +128,8 @@ export default {
             credential.accessToken
             result.user
             onAuthStateChanged(auth, async (user) => {
-              if (user !== null) {
+              if (user) {
+                const user = auth.currentUser
                 const displayName = user.displayName
                 const email = user.email
                 const photoURL = user.photoURL
@@ -151,6 +141,21 @@ export default {
                 this.userImg = photoURL
                 this.userEmail = email
                 this.userName = displayName
+                this.loginName = false
+                this.acountDelet = true
+                this.memoArea = true
+
+                const q = query(
+                  collection(db, "userComment"),
+                  where("userEmail", "==", email)
+                )
+                const querySnapshot = await getDocs(q)
+                console.log(querySnapshot)
+                querySnapshot.forEach((doc) => {
+                  this.comments.push({ text: doc.data().text })
+                })
+              } else {
+                console.log("ユーザーなし")
               }
             })
             this.loginName = false
@@ -269,6 +274,7 @@ export default {
 <style scoped>
 .allContainer {
   text-align: center;
+  user-select: noen;
 }
 
 .commentItem {

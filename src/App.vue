@@ -7,7 +7,9 @@
       <router-link to="/classHenkou">classHenkou</router-link>｜
       <router-link to="/slotpropsApp">slot-propsApp</router-link>｜
       <router-link to="/calendarApp">calendarApp</router-link>｜
-      <router-link to="/ColorApp">ColorApp</router-link>
+      <router-link to="/ColorApp">ColorApp</router-link>｜
+      <router-link to="/vuex">vuex</router-link>｜
+      <router-link to="/counterApp">counterApp</router-link>｜
     </nav>
     <router-view />
   </div>
