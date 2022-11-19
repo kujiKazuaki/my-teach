@@ -98,6 +98,11 @@
     </section>
 
     <!-- computed 終わり -->
+
+    <section>
+      <h1>test</h1>
+      <div v-for="memo in memos" :key="memo.id">{{ memo }}</div>
+    </section>
   </div>
 </template>
 
@@ -105,6 +110,7 @@
 export default {
   data() {
     return {
+      memos: [1, 3, 4, 5],
       profile: "",
       number: "one",
       animals: ["ライオン", "犬", "猫"],

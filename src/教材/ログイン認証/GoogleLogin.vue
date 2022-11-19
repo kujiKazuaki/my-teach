@@ -66,6 +66,8 @@ import {
   getDocs,
   query,
   where,
+  // deleteDoc,
+  // deleteDoc,
 } from "firebase/firestore"
 import { db } from "@/firebase.js"
 
@@ -266,6 +268,22 @@ export default {
     },
     deleteBtn(commentIndex) {
       this.comments.splice(commentIndex, 1)
+      getDocs(collection(db, "coomment"))
+        .then((snapshot) => {
+          return snapshot.docs
+        })
+        .then((docs) => {
+          console.log(docs.data())
+        })
+      console.log(commentIndex)
+      // await deleteDoc(doc(db, "comment", "DC"))
+      // const docRef = doc(db, "userComment", this.comments[commentIndex])
+      // const docSnap = await getDoc(docRef)
+      // console.log(docSnap)
+
+      // const userCommentDc = doc(db, "userComment", "1GkEvQMhPO7SphwvYTbZ")
+      // console.log(userCommentDc)
+      // await deleteDoc(userCommentDc)
     },
   },
 }

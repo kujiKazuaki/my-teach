@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      問1．147026800の正の約数のうち、10000以上99999以下の範囲にあるものを<br />全て足し合わせた時の和を求めてください
+    </p>
+    <script>
+      const getSumDivisor = (numN) => {
+        let sum = 0
+        for (let i = 1; i <= numN; i++) {
+          if (numN % i === 0) {
+            if (i >= 10000 && i <= 99999) {
+              sum += i
+            }
+          }
+        }
+        return sum
+      }
+      console.log(getSumDivisor(1470268800))
+    </script>
+  </body>
+</html>

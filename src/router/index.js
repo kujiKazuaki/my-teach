@@ -8,12 +8,25 @@ import calendarApp from "@/個人勉強用/calendarApp.vue"
 import ColorApp from "@/個人勉強用/ColorApp.vue"
 import vuex from "@/個人勉強用/vuex.vue"
 import counterApp from "@/個人勉強用/counterApp.vue"
+import testSpaceOne from "@/テストスペース/testSpaceOne.vue"
+import testSpace from "@/test.vue"
+import VueDirectiveLevelUp from "@/教材/VueDirectiveLevelUp.vue"
 
 const routes = [
+  {
+    path: "/App",
+    name: "App",
+    component: () => import("@/App.vue"),
+  },
   {
     path: "/slotpropsApp",
     name: "slotpropsApp",
     component: slotpropsApp,
+  },
+  {
+    path: "/testSpace",
+    name: "testSpace",
+    component: testSpace,
   },
   {
     path: "/VueDirective",
@@ -54,6 +67,41 @@ const routes = [
     path: "/counterApp",
     name: "counterApp",
     component: counterApp,
+  },
+  {
+    path: "/testSpaceOne",
+    name: "testSpaceOne",
+    component: testSpaceOne,
+  },
+  {
+    path: "/VueDirectiveLevelUp",
+    name: "VueDirectiveLevelUp",
+    component: VueDirectiveLevelUp,
+  },
+  {
+    path: "/testPlay",
+    name: "testPlay",
+    component: () => import("@/個人勉強用/Vue超入門/testPlay.vue"),
+  },
+  {
+    path: "/CountDown",
+    name: "CountDown",
+    component: () => import("@/個人勉強用/CountDown.vue"),
+  },
+  {
+    path: "/ComApp",
+    name: "ComApp",
+    component: () => import("@/個人勉強用/Vue超入門/CompotisionAPI/ComApp.vue"),
+  },
+  {
+    path: "/Router",
+    name: "Router",
+    component: () => import("@/個人勉強用/Vue超入門/Router.vue"),
+  },
+  {
+    path: "/axios",
+    name: "axios",
+    component: () => import("@/個人勉強用/Vue超入門/axios.vue"),
   },
 ]
 

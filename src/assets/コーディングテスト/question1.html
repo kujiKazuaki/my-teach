@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>iSHEEPとしたとき、333332番目から20文字は何になるでしょうか</h1>
+    <script>
+      let remains = []
+      for (let i = 1; i <= 100000; i++) {
+        let remain = i + "SJEEP"
+        remains.push(remain)
+      }
+      const mojiretu = remains.join("")
+      console.log(mojiretu)
+      const strsub = mojiretu.substr(33332, 20)
+      console.log(strsub)
+    </script>
+  </body>
+</html>
