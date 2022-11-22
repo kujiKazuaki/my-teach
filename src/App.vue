@@ -1,5 +1,5 @@
 <template>
-  <div class="allContainer">
+  <div class="allContainer m-1">
     <nav>
       <router-link to="/testSpaceOne">testSpaceOne</router-link>｜
       <router-link to="VueDirective">VueDirective</router-link>｜
@@ -18,10 +18,19 @@
     <section class="VueChonyumon">
       <h1>Vue.js超入門</h1>
       <nav>
-        <router-link to="/testPlay">testPlay</router-link>｜
+        <router-link to="/">testPlay</router-link>｜
         <router-link to="/ComApp">ComApp</router-link>｜
         <router-link to="/Router">Router</router-link>｜
         <router-link to="/axios">Axios</router-link>｜
+        <router-link to="/Bootstrap">Bootstrap</router-link>｜
+        <router-link to="/awesome">awesome</router-link>｜
+      </nav>
+    </section>
+    <section class="GeekSalon">
+      <h1>GeekSalon</h1>
+      <nav>
+        <router-link to="/memoApp">memoApp</router-link>｜
+        <router-link to="/memoAppSetup">memoAppSetup</router-link>｜
       </nav>
     </section>
 

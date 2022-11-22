@@ -79,7 +79,7 @@ const routes = [
     component: VueDirectiveLevelUp,
   },
   {
-    path: "/testPlay",
+    path: "/",
     name: "testPlay",
     component: () => import("@/個人勉強用/Vue超入門/testPlay.vue"),
   },
@@ -102,6 +102,26 @@ const routes = [
     path: "/axios",
     name: "axios",
     component: () => import("@/個人勉強用/Vue超入門/axios.vue"),
+  },
+  {
+    path: "/memoApp",
+    name: "memoApp",
+    component: () => import("@/GeekSalonStudy/memoApp.vue"),
+  },
+  {
+    path: "/memoAppSetup",
+    name: "memoAppSetup",
+    component: () => import("@/GeekSalonStudy/memoAppSetup.vue"),
+  },
+  {
+    path: "/Bootstrap",
+    name: "Bootstrap",
+    component: () => import("@/個人勉強用/Vue超入門/CSSdesign/Bootstrap.vue"),
+  },
+  {
+    path: "/awesome",
+    name: "awesome",
+    component: () => import("@/個人勉強用/Vue超入門/CSSdesign/awesome.vue"),
   },
 ]
 
