@@ -492,11 +492,18 @@
         >動き一覧(公式)</a
       >
     </p>
+    <p>
+      参考URL：<a
+        href="https://fontawesome.com/docs/web/style/lists"
+        target="_blank"
+        >rotate(公式)</a
+      >
+    </p>
     <p class="text-danger h5">※「faa-」と書いてあるが、「fa-」に修正する</p>
     <div>
       <font-awesome-icon
         icon="fa-solid fa-heart"
-        class="fa-spin iconSize"
+        class="fa-spin iconSize icobutton-6-grey-red"
         style="--fa-animation-direction: reverse"
       />
     </div>
