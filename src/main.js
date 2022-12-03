@@ -25,7 +25,9 @@ import {
   faGift,
   faHeart,
   faHippo,
+  faPen,
   faPhoneVolume,
+  faTrash,
   faUser,
   faUserSecret,
 } from "@fortawesome/free-solid-svg-icons"
@@ -44,7 +46,9 @@ library.add(
   faBell,
   faGift,
   faPhoneVolume,
-  faTwitter
+  faTwitter,
+  faTrash,
+  faPen
 )
 
 createApp(App)

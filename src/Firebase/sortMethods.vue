@@ -3,6 +3,10 @@
   <div class="app">
     <input type="text" v-model="tweetContent" />
     <button v-on:click="postTweet">ツイート</button>
+    <select class="ms-1" @change="selectChanger()" v-model="selectChange">
+      <option value="new">新しい順</option>
+      <option value="old">古い順</option>
+    </select>
     <!-- 変更点１ -->
     <div>
       <p v-for="tweet in tweets" :key="tweet.id">
@@ -19,8 +23,6 @@ import {
   addDoc,
   getDocs,
   serverTimestamp,
-  // orderBy,
-  // query,
 } from "firebase/firestore"
 import { db } from "@/firebase"
 
@@ -34,6 +36,7 @@ export default {
         { id: 0, test: 1 },
         { id: 1, test: 2 },
       ],
+      selectChange: "new",
     }
   },
   methods: {
@@ -42,7 +45,7 @@ export default {
         text: this.tweetContent,
         createdAt: serverTimestamp(),
       }
-      addDoc(collection(db, "tweets"), tweet).then((ref) => {
+      addDoc(collection(db, "Sorttweets"), tweet).then((ref) => {
         this.tweets.push({
           id: ref.id,
           ...tweet,
@@ -50,11 +53,23 @@ export default {
       })
       this.tweetContent = ""
     },
+    selectChanger() {
+      const changeMsg = this.selectChange
+      if (changeMsg === "new") {
+        this.tweets.sort(
+          (firstItem, secondItem) => firstItem.createdAt - secondItem.createdAt
+        )
+      } else if (changeMsg === "old") {
+        this.tweets.sort(
+          (firstItem, secondItem) => secondItem.createdAt - firstItem.createdAt
+        )
+      }
+    },
   },
 
   /* 変更点３ */
   async created() {
-    const querySnapshot = await getDocs(collection(db, "tweets"))
+    const querySnapshot = await getDocs(collection(db, "Sorttweets"))
     querySnapshot.forEach((doc) => {
       this.tweets.push({
         id: doc.id,

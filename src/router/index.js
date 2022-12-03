@@ -2,14 +2,14 @@ import { createRouter, createWebHistory } from "vue-router"
 import VueDirective from "@/教材/VueDirective.vue"
 import slot from "@/教材/slot-props/slot/slot.vue"
 import slotpropsApp from "@/教材/slot-props/Slot-propsApp.vue"
-import GoogleLogin from "@/教材/ログイン認証/GoogleLogin.vue"
+import GoogleLogin from "@/Firebase/Login/GoogleLogin.vue"
 import classHenkou from "@/個人勉強用/classHenkou.vue"
 import calendarApp from "@/個人勉強用/calendarApp.vue"
 import ColorApp from "@/個人勉強用/ColorApp.vue"
 import vuex from "@/個人勉強用/vuex.vue"
 import counterApp from "@/個人勉強用/counterApp.vue"
-import sortMethods from "@/テストスペース/sortMethods.vue"
-import testSpace from "@/test.vue"
+import sortMethods from "@/Firebase/sortMethods.vue"
+import testSpace from "@/受講生対応.vue"
 import VueDirectiveLevelUp from "@/教材/VueDirectiveLevelUp.vue"
 
 const routes = [
@@ -127,6 +127,11 @@ const routes = [
     path: "/paletteApp",
     name: "paletteApp",
     component: () => import("@/GeekSalonStudy/paletteApp.vue"),
+  },
+  {
+    path: "/GoodMemos",
+    name: "GoodMemos",
+    component: () => import("@/Firebase/GoodMemos/GoodMemos.vue"),
   },
 ]
 

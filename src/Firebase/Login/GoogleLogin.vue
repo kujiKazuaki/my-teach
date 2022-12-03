@@ -105,7 +105,7 @@ export default {
         this.memoArea = true
 
         const q = query(
-          collection(db, "userComment"),
+          collection(db, "GoogleuserComment"),
           where("userEmail", "==", email)
         )
         const querySnapshot = await getDocs(q)
@@ -148,7 +148,7 @@ export default {
                 this.memoArea = true
 
                 const q = query(
-                  collection(db, "userComment"),
+                  collection(db, "GoogleuserComment"),
                   where("userEmail", "==", email)
                 )
                 const querySnapshot = await getDocs(q)
@@ -221,7 +221,6 @@ export default {
               this.memoArea = false
             })
             .catch((error) => {
-              // An error happened.
               console.log(error)
             })
         }
@@ -242,7 +241,7 @@ export default {
               userEmail: profile.email,
               userImage: profile.photoURL,
             }
-            await addDoc(collection(db, "userComment"), memo)
+            await addDoc(collection(db, "GoogleuserComment"), memo)
           })
         }
         this.inputMemo = ""
@@ -276,14 +275,6 @@ export default {
           console.log(docs.data())
         })
       console.log(commentIndex)
-      // await deleteDoc(doc(db, "comment", "DC"))
-      // const docRef = doc(db, "userComment", this.comments[commentIndex])
-      // const docSnap = await getDoc(docRef)
-      // console.log(docSnap)
-
-      // const userCommentDc = doc(db, "userComment", "1GkEvQMhPO7SphwvYTbZ")
-      // console.log(userCommentDc)
-      // await deleteDoc(userCommentDc)
     },
   },
 }
