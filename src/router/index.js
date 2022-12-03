@@ -8,7 +8,7 @@ import calendarApp from "@/個人勉強用/calendarApp.vue"
 import ColorApp from "@/個人勉強用/ColorApp.vue"
 import vuex from "@/個人勉強用/vuex.vue"
 import counterApp from "@/個人勉強用/counterApp.vue"
-import testSpaceOne from "@/テストスペース/testSpaceOne.vue"
+import sortMethods from "@/テストスペース/sortMethods.vue"
 import testSpace from "@/test.vue"
 import VueDirectiveLevelUp from "@/教材/VueDirectiveLevelUp.vue"
 
@@ -69,9 +69,9 @@ const routes = [
     component: counterApp,
   },
   {
-    path: "/testSpaceOne",
-    name: "testSpaceOne",
-    component: testSpaceOne,
+    path: "/sortMethods",
+    name: "sortMethods",
+    component: sortMethods,
   },
   {
     path: "/VueDirectiveLevelUp",

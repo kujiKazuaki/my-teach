@@ -1,7 +1,7 @@
 <template>
   <div class="allContainer m-1">
     <nav>
-      <router-link to="/testSpaceOne">testSpaceOne</router-link>｜
+      <router-link to="/sortMethods">sortMethods</router-link>｜
       <router-link to="VueDirective">VueDirective</router-link>｜
       <router-link to="/VueDirectiveLevelUp">VueDirectiveLevelUp</router-link>｜
       <!-- <router-link to="slot">slot</router-link>｜ -->

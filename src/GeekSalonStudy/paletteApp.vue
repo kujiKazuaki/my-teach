@@ -77,7 +77,7 @@ export default {
       greenNum: 50,
       alpha: 0.5,
       miniPalettes: [],
-      alphaNum: 0.5,
+      alphaNum: 0,
       answer: "",
       answerTxt: "",
       nextMsg: "",
