@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
   <div class="allContainer" style="text-align: center">
     <h1>「text-size」or「text-color」</h1>
     <input v-model="inputclass" />
@@ -37,9 +37,9 @@ export default {
 .text-color {
   color: red;
 }
-</style> -->
+</style>
 
-<template>
+<!-- <template>
   <div class="allContainer" style="text-align: center">
     <h1>「text-size」or「text-color」</h1>
     <input v-model="inputclass" />
@@ -67,4 +67,4 @@ export default {
 .text-color {
   color: red;
 }
-</style>
+</style> -->

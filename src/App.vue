@@ -31,6 +31,7 @@
       <nav>
         <router-link to="/memoApp">memoApp</router-link>｜
         <router-link to="/memoAppSetup">memoAppSetup</router-link>｜
+        <router-link to="/paletteApp">paletteApp</router-link>｜
       </nav>
     </section>
 

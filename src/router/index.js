@@ -123,6 +123,11 @@ const routes = [
     name: "awesome",
     component: () => import("@/個人勉強用/Vue超入門/CSSdesign/awesome.vue"),
   },
+  {
+    path: "/paletteApp",
+    name: "paletteApp",
+    component: () => import("@/GeekSalonStudy/paletteApp.vue"),
+  },
 ]
 
 const router = createRouter({

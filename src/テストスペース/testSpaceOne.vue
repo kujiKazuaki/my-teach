@@ -1,36 +1,70 @@
 <template>
-  <div class="all_Container">
-    <section class="console_Area">
-      <p>{{ message.message }}</p>
-      <button v-on:click="testBtn">test</button>
-    </section>
+  <h1>Sort()成功した！</h1>
+  <div class="app">
+    <input type="text" v-model="tweetContent" />
+    <button v-on:click="postTweet">ツイート</button>
+    <!-- 変更点１ -->
+    <div>
+      <p v-for="tweet in tweets" :key="tweet.id">
+        {{ tweet.id }}： {{ tweet.text }}：{{ tweet.createdAt }}
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
+/* 変更点１ */
+import {
+  collection,
+  addDoc,
+  getDocs,
+  serverTimestamp,
+  // orderBy,
+  // query,
+} from "firebase/firestore"
+import { db } from "@/firebase"
+
 export default {
   data() {
     return {
-      message: "asdf",
+      tweetContent: "",
+      /* 変更点２ */
+      tweets: [],
+      array: [
+        { id: 0, test: 1 },
+        { id: 1, test: 2 },
+      ],
     }
   },
   methods: {
-    testBtn() {
-      if (window.prompt("数字を入力してください", "42")) {
-        let remain = { message: this.message }
-        console.dir(remain)
-        let remains = [{ message: this.message }]
-        // console.dir(remains)
-        // console.log(remains)
-        console.log(typeof remains)
+    postTweet() {
+      const tweet = {
+        text: this.tweetContent,
+        createdAt: serverTimestamp(),
       }
+      addDoc(collection(db, "tweets"), tweet).then((ref) => {
+        this.tweets.push({
+          id: ref.id,
+          ...tweet,
+        })
+      })
+      this.tweetContent = ""
     },
+  },
+
+  /* 変更点３ */
+  async created() {
+    const querySnapshot = await getDocs(collection(db, "tweets"))
+    querySnapshot.forEach((doc) => {
+      this.tweets.push({
+        id: doc.id,
+        ...doc.data(),
+      })
+    })
+
+    this.tweets.sort(
+      (firstItem, secondItem) => firstItem.createdAt - secondItem.createdAt
+    )
   },
 }
 </script>
-
-<style scoped>
-.all_Container {
-  text-align: center;
-}
-</style>
