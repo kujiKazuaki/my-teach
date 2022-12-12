@@ -1,16 +1,15 @@
 import { createRouter, createWebHistory } from "vue-router"
-import VueDirective from "@/教材/VueDirective.vue"
-import slot from "@/教材/slot-props/slot/slot.vue"
-import slotpropsApp from "@/教材/slot-props/Slot-propsApp.vue"
-import GoogleLogin from "@/Firebase/Login/GoogleLogin.vue"
-import classHenkou from "@/個人勉強用/classHenkou.vue"
-import calendarApp from "@/個人勉強用/calendarApp.vue"
-import ColorApp from "@/個人勉強用/ColorApp.vue"
-import vuex from "@/個人勉強用/vuex.vue"
-import counterApp from "@/個人勉強用/counterApp.vue"
-import sortMethods from "@/Firebase/sortMethods.vue"
-import testSpace from "@/受講生対応.vue"
-import VueDirectiveLevelUp from "@/教材/VueDirectiveLevelUp.vue"
+import VueDirective from "@/Views/GeekSalon/Teaching/VueDirective.vue"
+import slot from "@/Views/GeekSalon/Teaching/slot_props/slot/slot.vue"
+import slotpropsApp from "@/Views/GeekSalon/Teaching/slot_props/Slot-propsApp.vue"
+import GoogleLogin from "@/Views/Firebase/Login/GoogleLogin.vue"
+import classHenkou from "@/Others/classHenkou.vue"
+import calendarApp from "@/Others/calendarApp.vue"
+import ColorApp from "@/Others/ColorApp.vue"
+import vuex from "@/Others/vuex.vue"
+import counterApp from "@/Others/counterApp.vue"
+import sortMethods from "@/Views/GeekSalon/Students/sortMethods.vue"
+import VueDirectiveLevelUp from "@/Views/GeekSalon/Teaching/VueDirectiveLevelUp.vue"
 
 const routes = [
   {
@@ -22,11 +21,6 @@ const routes = [
     path: "/slotpropsApp",
     name: "slotpropsApp",
     component: slotpropsApp,
-  },
-  {
-    path: "/testSpace",
-    name: "testSpace",
-    component: testSpace,
   },
   {
     path: "/VueDirective",
@@ -81,57 +75,73 @@ const routes = [
   {
     path: "/",
     name: "testPlay",
-    component: () => import("@/個人勉強用/Vue超入門/testPlay.vue"),
+    component: () => import("@/Views/VueChoNyumon/testPlay.vue"),
   },
   {
     path: "/CountDown",
     name: "CountDown",
-    component: () => import("@/個人勉強用/CountDown.vue"),
+    component: () => import("@/Others/CountDown.vue"),
   },
   {
     path: "/ComApp",
     name: "ComApp",
-    component: () => import("@/個人勉強用/Vue超入門/CompotisionAPI/ComApp.vue"),
+    component: () => import("@/Views/VueChoNyumon/CompositionAPI/ComApp.vue"),
   },
   {
     path: "/Router",
     name: "Router",
-    component: () => import("@/個人勉強用/Vue超入門/Router.vue"),
+    component: () => import("@/Views/VueChoNyumon/Router.vue"),
   },
   {
     path: "/axios",
     name: "axios",
-    component: () => import("@/個人勉強用/Vue超入門/axios.vue"),
+    component: () => import("@/Views/VueChoNyumon/axios.vue"),
   },
   {
-    path: "/memoApp",
-    name: "memoApp",
-    component: () => import("@/GeekSalonStudy/memoApp.vue"),
+    path: "/JSONmemoApp",
+    name: "JSONmemoApp",
+    component: () => import("@/Views/GeekSalon/demo_teamApp/JSONmemoApp.vue"),
+  },
+  {
+    path: "/FirebaseMemoApp",
+    name: "FirebaseMemoApp",
+    component: () =>
+      import("@/Views/GeekSalon/demo_teamApp/FirebaseMemoApp.vue"),
   },
   {
     path: "/memoAppSetup",
     name: "memoAppSetup",
-    component: () => import("@/GeekSalonStudy/memoAppSetup.vue"),
+    component: () => import("@/Views/GeekSalon/demo_teamApp/memoAppSetup.vue"),
   },
   {
     path: "/Bootstrap",
     name: "Bootstrap",
-    component: () => import("@/個人勉強用/Vue超入門/CSSdesign/Bootstrap.vue"),
+    component: () => import("@/Views/CSS/Bootstrap.vue"),
   },
   {
     path: "/awesome",
     name: "awesome",
-    component: () => import("@/個人勉強用/Vue超入門/CSSdesign/awesome.vue"),
+    component: () => import("@/Views/CSS/awesome.vue"),
   },
   {
     path: "/paletteApp",
     name: "paletteApp",
-    component: () => import("@/GeekSalonStudy/paletteApp.vue"),
+    component: () => import("@/Views/GeekSalon/demo_teamApp/paletteApp.vue"),
   },
   {
     path: "/GoodMemos",
     name: "GoodMemos",
-    component: () => import("@/Firebase/GoodMemos/GoodMemos.vue"),
+    component: () => import("@/Views/Firebase/GoodMemos/GoodMemos.vue"),
+  },
+  {
+    path: "/Tailwind",
+    name: "Tailwind",
+    component: () => import("@/Views/CSS/Tailwind.vue"),
+  },
+  {
+    path: "/DrugAndDrop",
+    name: "DrugAndDrop",
+    component: () => import("@/Others/DrugAndDrop.vue"),
   },
 ]
 

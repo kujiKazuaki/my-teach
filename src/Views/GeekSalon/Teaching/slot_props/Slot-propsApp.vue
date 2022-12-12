@@ -80,10 +80,10 @@
 </template>
 
 <script>
-import MainBtn from "@/教材/slot-props/slot/MainBtn.vue"
-import MainLayout from "@/教材/slot-props/slot/MainLayout.vue"
-import propsBase from "@/教材/slot-props/props/propsBase.vue"
-import propsStyle from "@/教材/slot-props/props/propsStyle.vue"
+import MainBtn from "@/Views/GeekSalon/Teaching/slot_props/slot/MainBtn.vue"
+import MainLayout from "@/Views/GeekSalon/Teaching/slot_props/slot/MainLayout.vue"
+import propsBase from "@/Views/GeekSalon/Teaching/slot_props/props/propsBase.vue"
+import propsStyle from "@/Views/GeekSalon/Teaching/slot_props/props/propsStyle.vue"
 
 export default {
   components: {

@@ -1,17 +1,17 @@
 <template>
   <div class="all_Area">
-    <h1>Todoリスト(従来)</h1>
+    <h1>Todoリスト(JSON)</h1>
     <div>
       <input
         type="text"
-        @keydown.enter="addMemo"
+        @keydown.enter="addBtn()"
         v-model="inputMemo"
         placeholder="買うものを書いてね"
       />
       <div>
-        <button @click="addBtn">アイテムを追加</button>
-        <button @click="selectBtn" class="m-2">選択削除</button>
-        <button @click="allDeleteBtn">すべて消す</button>
+        <button @click="addBtn()">アイテムを追加</button>
+        <button @click="selectBtn()" class="m-2">選択削除</button>
+        <button @click="allDeleteBtn()">すべて消す</button>
       </div>
     </div>
     <ul>
@@ -37,16 +37,9 @@ export default {
     }
   },
   created() {
-    this.items = JSON.parse(localStorage["memoitems"] || "")
+    this.items = JSON.parse(localStorage["memoitems"] || "[]")
   },
   methods: {
-    addMemo() {
-      if (this.inputMemo !== "") {
-        this.items.push({ text: this.inputMemo })
-        localStorage.setItem("memoitems", JSON.stringify(this.items))
-        this.inputMemo = ""
-      }
-    },
     addBtn() {
       if (this.inputMemo !== "") {
         this.items.push({ text: this.inputMemo })

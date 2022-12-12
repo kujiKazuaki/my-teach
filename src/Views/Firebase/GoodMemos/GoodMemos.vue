@@ -5,6 +5,18 @@
     </section>
 
     <section>
+      <p class="h3">メモ記入</p>
+      <div>
+        <button
+          type="button"
+          @click="memoFormatBtn"
+          class="btn btn-warning text-white"
+        >
+          Warning
+        </button>
+      </div>
+    </section>
+    <section>
       <p class="h3">選択</p>
       <div>
         <button type="button" @click="home" class="btn btn-primary">
@@ -32,7 +44,7 @@
 </template>
 
 <script>
-import postedMemo from "@/Firebase/GoodMemos/postedMemos.vue"
+import postedMemo from "@/Views/Firebase/GoodMemos/postedMemos.vue"
 
 export default {
   components: {
@@ -51,6 +63,7 @@ export default {
     good() {
       console.log("good")
     },
+    memoFormatBtn() {},
   },
 }
 </script>

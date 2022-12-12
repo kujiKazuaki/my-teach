@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import CompilationAPI from "@/個人勉強用/Vue超入門/CompotisionAPI/CompotisionAPI.vue"
+import CompilationAPI from "@/Views/VueChoNyumon/CompositionAPI/CompotisionAPI.vue"
 import NewCompotisionAPI from "./NewCompotisionAPI.vue"
 
 export default {
