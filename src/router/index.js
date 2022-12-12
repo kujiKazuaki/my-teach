@@ -3,11 +3,11 @@ import VueDirective from "@/Views/GeekSalon/Teaching/VueDirective.vue"
 import slot from "@/Views/GeekSalon/Teaching/slot_props/slot/slot.vue"
 import slotpropsApp from "@/Views/GeekSalon/Teaching/slot_props/Slot-propsApp.vue"
 import GoogleLogin from "@/Views/Firebase/Login/GoogleLogin.vue"
-import classHenkou from "@/Others/classHenkou.vue"
-import calendarApp from "@/Others/calendarApp.vue"
-import ColorApp from "@/Others/ColorApp.vue"
-import vuex from "@/Others/vuex.vue"
-import counterApp from "@/Others/counterApp.vue"
+import classHenkou from "@/Views/Others/classHenkou.vue"
+import calendarApp from "@/Views/Others/calendarApp.vue"
+import ColorApp from "@/Views/Others/ColorApp.vue"
+import vuex from "@/Views/Others/vuex.vue"
+import counterApp from "@/Views/Others/counterApp.vue"
 import sortMethods from "@/Views/GeekSalon/Students/sortMethods.vue"
 import VueDirectiveLevelUp from "@/Views/GeekSalon/Teaching/VueDirectiveLevelUp.vue"
 
@@ -80,7 +80,7 @@ const routes = [
   {
     path: "/CountDown",
     name: "CountDown",
-    component: () => import("@/Others/CountDown.vue"),
+    component: () => import("@/Views/Others/CountDown.vue"),
   },
   {
     path: "/ComApp",
@@ -141,7 +141,7 @@ const routes = [
   {
     path: "/DrugAndDrop",
     name: "DrugAndDrop",
-    component: () => import("@/Others/DrugAndDrop.vue"),
+    component: () => import("@/Views/Others/DrugAndDrop.vue"),
   },
 ]
 
