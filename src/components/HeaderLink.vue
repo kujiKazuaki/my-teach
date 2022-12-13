@@ -10,7 +10,8 @@
       <router-link to="/vuex">vuex</router-link>｜
       <router-link to="/counterApp">counterApp</router-link>｜
       <router-link to="/CountDown">CountDown</router-link>｜
-      <router-link to="/DrugAndDrop">DrugAndDrop</router-link>｜
+      <router-link to="/DrugAndDrop_setup">DrugAndDrop_setup</router-link>｜
+      <router-link to="/DragAndDrop">DragAndDrop</router-link>｜
     </nav>
     <section class="VueChonyumon">
       <h4>Vue.js超入門</h4>

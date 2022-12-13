@@ -18,6 +18,9 @@ export default {
 </script>
 
 <style>
+.allContainer {
+  user-select: none;
+}
 .section_Container {
   text-align: center;
   list-style: none;

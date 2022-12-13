@@ -139,9 +139,14 @@ const routes = [
     component: () => import("@/Views/CSS/Tailwind.vue"),
   },
   {
-    path: "/DrugAndDrop",
-    name: "DrugAndDrop",
-    component: () => import("@/Views/Others/DrugAndDrop.vue"),
+    path: "/DrugAndDrop_setup",
+    name: "DrugAndDrop_setup",
+    component: () => import("@/Views/Others/DragAndDrop_setup.vue"),
+  },
+  {
+    path: "/DragAndDrop",
+    name: "DragAndDrop",
+    component: () => import("@/Views/Others/DragAndDrop.vue"),
   },
 ]
 
