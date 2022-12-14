@@ -148,6 +148,11 @@ const routes = [
     name: "DragAndDrop",
     component: () => import("@/Views/Others/DragAndDrop.vue"),
   },
+  {
+    path: "/calculation",
+    name: "calculation",
+    component: () => import("@/Views/Others/calculation.vue"),
+  },
 ]
 
 const router = createRouter({
