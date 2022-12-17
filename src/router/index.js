@@ -153,6 +153,11 @@ const routes = [
     name: "calculation",
     component: () => import("@/Views/Others/calculation.vue"),
   },
+  {
+    path: "/test",
+    name: "test",
+    component: () => import("@/Views/test.vue"),
+  },
 ]
 
 const router = createRouter({

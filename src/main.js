@@ -28,8 +28,10 @@ import {
   faGift,
   faHeart,
   faHippo,
+  faMinus,
   faPen,
   faPhoneVolume,
+  faPlus,
   faTrash,
   faUser,
   faUserSecret,
@@ -51,7 +53,9 @@ library.add(
   faPhoneVolume,
   faTwitter,
   faTrash,
-  faPen
+  faPen,
+  faPlus,
+  faMinus
 )
 
 createApp(App)
