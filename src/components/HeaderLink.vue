@@ -7,11 +7,11 @@
           icon="fa-plus"
           class="iconSize"
           @click="other = !other"
-          v-if="other"
+          v-if="!other"
         />
         <font-awesome-icon
           icon="fa-minus"
-          v-if="!other"
+          v-if="other"
           class="iconSize"
           @click="other = !other"
         />
@@ -40,11 +40,11 @@
           icon="fa-plus"
           class="iconSize"
           @click="VueChonyumon = !VueChonyumon"
-          v-if="VueChonyumon"
+          v-if="!VueChonyumon"
         />
         <font-awesome-icon
           icon="fa-minus"
-          v-if="!VueChonyumon"
+          v-if="VueChonyumon"
           class="iconSize"
           @click="VueChonyumon = !VueChonyumon"
         />
@@ -67,11 +67,11 @@
           icon="fa-plus"
           class="iconSize"
           @click="GeekSalon = !GeekSalon"
-          v-if="GeekSalon"
+          v-if="!GeekSalon"
         />
         <font-awesome-icon
           icon="fa-minus"
-          v-if="!GeekSalon"
+          v-if="GeekSalon"
           class="iconSize"
           @click="GeekSalon = !GeekSalon"
         />
@@ -97,11 +97,11 @@
           icon="fa-plus"
           class="iconSize"
           @click="Firebase = !Firebase"
-          v-if="Firebase"
+          v-if="!Firebase"
         />
         <font-awesome-icon
           icon="fa-minus"
-          v-if="!Firebase"
+          v-if="Firebase"
           class="iconSize"
           @click="Firebase = !Firebase"
         />
