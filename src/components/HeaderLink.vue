@@ -77,10 +77,12 @@
         />
       </div>
       <nav v-if="GeekSalon">
+        <router-link to="/sortMethods">sortMethods</router-link>｜
         <router-link to="/JSONmemoApp">JSONmemoApp</router-link>｜
         <router-link to="/FirebaseMemoApp">FirebaseMemoApp</router-link>｜
         <router-link to="/memoAppSetup">memoAppSetup</router-link>｜
         <router-link to="/paletteApp">paletteApp</router-link>｜
+        <router-link to="/DragAndDrop">DragAndDrop</router-link>｜
       </nav>
     </section>
     <section class="Firebase_section">

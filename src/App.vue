@@ -25,4 +25,12 @@ export default {
   text-align: center;
   list-style: none;
 }
+
+@media screen and (max-width: 700px) {
+  .allContainer {
+    width: 700px;
+    position: absolute;
+    transform-origin: 0% 0%;
+  }
+}
 </style>

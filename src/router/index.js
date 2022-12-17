@@ -141,7 +141,7 @@ const routes = [
   {
     path: "/DrugAndDrop_setup",
     name: "DrugAndDrop_setup",
-    component: () => import("@/Views/Others/DragAndDrop_setup.vue"),
+    component: () => import("@/Views/GeekSalon/Students/DragAndDrop.vue"),
   },
   {
     path: "/DragAndDrop",
@@ -157,6 +157,11 @@ const routes = [
     path: "/test",
     name: "test",
     component: () => import("@/Views/test.vue"),
+  },
+  {
+    path: "/DragAndDrop",
+    name: "DragAndDrop",
+    component: () => import("@/Views/GeekSalon/Students/DragAndDrop.vue"),
   },
 ]
 
