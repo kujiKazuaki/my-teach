@@ -114,8 +114,7 @@ export default {
   },
   methods: {
     getList(list) {
-      // this.itemsの中の各オブジェクトの番号を特定する処理を描いている。
-      // このコードを描くことで、v-for内のitemsに番号を振るだけで表示場所の特定が可能になる
+      // this.items.listの番号ごとにグループ分けする
       const item = this.items.filter((item) => item.list == list)
       return item
     },

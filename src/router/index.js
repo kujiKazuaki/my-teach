@@ -144,8 +144,8 @@ const routes = [
     component: () => import("@/Views/GeekSalon/Students/DragAndDrop.vue"),
   },
   {
-    path: "/DragAndDrop",
-    name: "DragAndDrop",
+    path: "/DragAndDrop_other",
+    name: "DragAndDrop_other",
     component: () => import("@/Views/Others/DragAndDrop.vue"),
   },
   {

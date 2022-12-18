@@ -35,7 +35,7 @@
       >
         <p class="answer_number">１：</p>
         <div
-          v-for="item in getList(2)"
+          v-for="item in CategoryA"
           :key="item.id"
           class="drog_el"
           draggable="true"
@@ -53,7 +53,7 @@
       >
         <p class="answer_number">２：</p>
         <div
-          v-for="item in getList(0)"
+          v-for="item in CategoryB"
           :key="item.id"
           class="drog_el"
           draggable="true"
@@ -71,7 +71,7 @@
       >
         <p class="answer_number">３：</p>
         <div
-          v-for="item in getList(0)"
+          v-for="item in CategoryC"
           :key="item.id"
           class="drog_el"
           draggable="true"
@@ -94,6 +94,17 @@ export default {
         { id: 2, title: "methods", list: 2 },
       ],
     }
+  },
+  computed: {
+    CategoryA() {
+      return this.items.filter((item) => item.category == "A")
+    },
+    CategoryB() {
+      return this.items.filter((item) => item.category == "B")
+    },
+    CategoryC() {
+      return this.items.filter((item) => item.category == "C")
+    },
   },
   methods: {
     getList(list) {
