@@ -2,7 +2,7 @@
   <h1>Vue パレット</h1>
   <div class="app">
     <!-- メインパレット -->
-    <div class="border border-3 border-danger mb-2">
+    <div class="mb-2">
       <p class="h4">ミッション</p>
       <p>パレットの謎を解け！</p>
       <p class="h4">ヒント</p>
@@ -20,6 +20,20 @@
         </button>
       </div>
     </div>
+
+    <!-- 表示部分 -->
+    <div class="border-primary">
+      <strong>alpha</strong>
+      <input type="range" min="0" max="1" step="0.1" v-model="alpha" /><br />
+      <p class="text-white bg-dark">
+        rangeタイプだとv-modelがうまく作動しない。
+      </p>
+      <strong>green</strong>
+      <input type="number" min="0" max="255" v-model="greenNum" />
+      <hr />
+    </div>
+    <p>rgba( {{ red }}, {{ greenNum }}, {{ blue }}, {{ alpha }} )</p>
+
     <div
       class="palette"
       v-on:mousemove="changeColor"
@@ -39,20 +53,6 @@
         password
       </p>
     </div>
-
-    <!-- 表示部分 -->
-    <div class="border-primary">
-      <strong>green</strong>
-      <input type="number" min="0" max="255" v-model="greenNum" /><br />
-      <hr />
-      <strong>alpha</strong>
-      <input type="range" min="0" max="1" step="0.1" v-model="alpha" />
-      <p class="text-white bg-dark">
-        rangeタイプだとv-modelがうまく作動しない。
-      </p>
-      <hr />
-    </div>
-    <p>rgba( {{ red }}, {{ greenNum }}, {{ blue }}, {{ alpha }} )</p>
 
     <!-- パレットライブラリ -->
     <div class="colors-container">

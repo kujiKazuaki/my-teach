@@ -18,10 +18,6 @@
       </div>
     </section>
 
-    <section class="kaisetsu">
-      <p class="h4 mt-2 text-danger">解説</p>
-    </section>
-
     <section class="donyu">
       <p class="h4 mt-2 text-danger">
         導入方法

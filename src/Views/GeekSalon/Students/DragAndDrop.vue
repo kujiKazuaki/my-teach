@@ -1,5 +1,5 @@
 <template>
-  <h1>Drag & Drop(Mission)</h1>
+  <h1>Drag & Drop(Mission)_建設中</h1>
   <section class="quiz_section">
     <p class="h4 text-danger mt-2">各番号に入るコードを選択肢から選択せよ</p>
     <img src="./images/DragAndDrop.png" alt="image" class="img" />
