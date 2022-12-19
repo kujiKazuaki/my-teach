@@ -27,6 +27,15 @@
     <div class="finalAnswer">
       <p>{{ finalAnswer }}</p>
     </div>
+    <div class="next_div">
+      <button
+        class="btn btn-warning nextPage_btn"
+        @click="nextPageBtn()"
+        v-if="nextPage"
+      >
+        解説
+      </button>
+    </div>
   </section>
 
   <section>
@@ -89,6 +98,7 @@ export default {
   data() {
     return {
       finalAnswer: "",
+      nextPage: false,
       items: [
         { id: 0, title: "#app", list: 1 },
         { id: 1, title: "$event", list: 1 },
@@ -102,18 +112,30 @@ export default {
   computed: {},
   methods: {
     answer() {
-      // 下記3行を行わず直接if文に書くと、if文参照時にそもそもthis.item1[0]が存在しない場合、
-      // エラーが起きてelseのほうが起こらない
-      let item1_correct = this.item1.filter((item) => item.title === "$event")
-      let item2_correct = this.item2.filter((item) => item.title === "methods")
-      let item3_correct = this.item3.filter((item) => item.title === "#app")
-
-      if (item1_correct && item2_correct && item3_correct) {
-        this.finalAnswer = "正解！"
-        console.log("正解")
-      } else {
-        this.finalAnswer = "ちがう😊"
+      let serach = []
+      if (this.item1[0] !== undefined) {
+        serach.push(this.item1[0].title)
       }
+      if (this.item2[0] !== undefined) {
+        serach.push(this.item2[0].title)
+      }
+      if (this.item3[0] !== undefined) {
+        serach.push(this.item3[0].title)
+      }
+
+      if (
+        serach[0] === "$event" &&
+        serach[1] === "methods" &&
+        serach[2] === "#app"
+      ) {
+        this.finalAnswer = "正解！"
+        this.nextPage = true
+      } else {
+        this.finalAnswer = "ちがう😡"
+      }
+    },
+    nextPageBtn() {
+      this.$router.push("/VueDraggable")
     },
   },
 }
@@ -160,6 +182,7 @@ export default {
 .finalAnswer_section {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .finalAnswer {
   border: 2px solid rgb(201, 200, 200);
@@ -173,6 +196,14 @@ export default {
 }
 .finalAnswer p {
   font-size: 20px;
+  font-weight: bold;
+}
+.next_div {
+  margin-left: 7px;
+}
+.nextPage_btn {
+  color: rgb(255, 54, 54);
+  font-size: 15px;
   font-weight: bold;
 }
 .drag_el {
@@ -189,8 +220,9 @@ export default {
   margin-bottom: 0;
 }
 .answer_zones {
-  border: 2px solid black;
-  max-width: 250px;
+  /* border: 2px solid black; */
+  width: 300px;
+  max-width: 800px;
   margin: 0 auto;
   margin-bottom: 30px;
 }

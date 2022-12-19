@@ -20,6 +20,7 @@
     "core-js": "^3.8.3",
     "firebase": "^9.9.4",
     "font-awesome-animation": "^1.1.1",
+    "sortablejs": "^1.15.0",
     "vue": "^3.2.45",
     "vue-axios": "^3.5.0",
     "vue-router": "^4.0.3",
