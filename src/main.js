@@ -58,6 +58,8 @@ library.add(
   faMinus
 )
 
+// import draggable from 'vuedraggable'
+
 createApp(App)
   .component("font-awesome-icon", FontAwesomeIcon)
   .component("FALayers", FontAwesomeLayers)

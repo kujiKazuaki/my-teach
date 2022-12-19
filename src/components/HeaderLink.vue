@@ -29,6 +29,7 @@
         <router-link to="/CountDown">CountDown</router-link>｜
         <router-link to="/DragAndDrop_other">DragAndDrop</router-link>｜
         <router-link to="/calculation">calculation</router-link>｜
+        <router-link to="/VueDraggable">VueDraggable</router-link>｜
       </nav>
     </section>
 
@@ -82,6 +83,7 @@
         <router-link to="/memoAppSetup">memoAppSetup</router-link>｜
         <router-link to="/paletteApp">paletteApp</router-link>｜
         <router-link to="/DragAndDrop">DragAndDrop</router-link>｜
+        <router-link to="/Geek_VueDraggable">Geek_VueDraggable</router-link>｜
       </nav>
     </section>
     <section class="Firebase_section">

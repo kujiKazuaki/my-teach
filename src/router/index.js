@@ -163,6 +163,16 @@ const routes = [
     name: "DragAndDrop",
     component: () => import("@/Views/GeekSalon/Students/DragAndDrop.vue"),
   },
+  {
+    path: "/VueDraggable",
+    name: "VueDraggable",
+    component: () => import("@/Views/Others/VueDraggable.vue"),
+  },
+  {
+    path: "/Geek_VueDraggable",
+    name: "Geek_VueDraggable",
+    component: () => import("@/Views/GeekSalon/Students/VueDraggable.vue"),
+  },
 ]
 
 const router = createRouter({

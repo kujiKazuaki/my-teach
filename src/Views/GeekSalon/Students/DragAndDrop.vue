@@ -13,7 +13,7 @@
       @dragover.prevent
     >
       <div
-        v-for="item in items"
+        v-for="item in getList(1)"
         :key="item.id"
         class="drag_el"
         draggable="true"
@@ -47,7 +47,7 @@
 
       <div
         class="answer_zone"
-        @drop="onDrop($event, 2)"
+        @drop="onDrop($event, 'B')"
         @dragenter.prevent
         @dragover.prevent
       >
@@ -65,7 +65,7 @@
 
       <div
         class="answer_zone"
-        @drop="onDrop($event, 2)"
+        @drop="onDrop($event, 'C')"
         @dragenter.prevent
         @dragover.prevent
       >
@@ -91,7 +91,7 @@ export default {
       items: [
         { id: 0, title: "#app", list: 1 },
         { id: 1, title: "$event", list: 1 },
-        { id: 2, title: "methods", list: 2 },
+        { id: 2, title: "methods", list: 1 },
       ],
     }
   },
@@ -118,12 +118,13 @@ export default {
       event.dataTransfer.dropEffect = "move"
       event.dataTransfer.effectAllowed = "move"
       // ドラッグする際に入れ込むデータを設定している。入れ込んでいるデータはitem番号
-      event.dataTransfer.setData("itemID", item.id)
+      event.dataTransfer.setData("itemID", item)
     },
     onDrop(event, list) {
       // ドロップしたアイテムを番号順に並べ替えする処理
-      const itemID = event.dataTransfer.getData("itemID")
-      const item = this.items.find((item) => item.id == itemID)
+      const itemId = event.dataTransfer.getData("itemID")
+      const item = this.items.find((item) => item.id == itemId)
+      console.log(item)
       item.list = list
     },
   },
