@@ -109,7 +109,6 @@ export default {
       item3: [],
     }
   },
-  computed: {},
   methods: {
     answer() {
       let serach = []
