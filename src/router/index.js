@@ -178,6 +178,11 @@ const routes = [
     name: "ThingIWantToDo",
     component: () => import("@/Views/Others/ThingIWantToDo.vue"),
   },
+  {
+    path: "/vuetify",
+    name: "vuetify",
+    component: () => import("@/Views/CSS/vuetify.vue"),
+  },
 ]
 
 const router = createRouter({

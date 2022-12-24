@@ -58,6 +58,7 @@
         <router-link to="/Bootstrap">Bootstrap</router-link>｜
         <router-link to="/awesome">awesome</router-link>｜
         <router-link to="/Tailwind">Tailwind</router-link>｜
+        <router-link to="/vuetify">vuetify</router-link>｜
       </nav>
     </section>
 
