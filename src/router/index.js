@@ -173,6 +173,11 @@ const routes = [
     name: "Geek_VueDraggable",
     component: () => import("@/Views/GeekSalon/Students/VueDraggable.vue"),
   },
+  {
+    path: "/ThingIWantToDo",
+    name: "ThingIWantToDo",
+    component: () => import("@/Views/Others/ThingIWantToDo.vue"),
+  },
 ]
 
 const router = createRouter({

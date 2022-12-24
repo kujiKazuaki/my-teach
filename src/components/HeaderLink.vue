@@ -17,6 +17,7 @@
         />
       </div>
       <nav v-if="other_nav">
+        <router-link to="/ThingIWantToDo">やりたいこと</router-link>｜
         <router-link to="/test">テスト</router-link>｜
         <router-link to="/VueDirective">VueDirective</router-link>｜
         <router-link to="/VueDirectiveLevelUp">VueDirectiveLevelUp</router-link
