@@ -86,6 +86,7 @@
         <router-link to="/paletteApp">paletteApp</router-link>｜
         <router-link to="/DragAndDrop">DragAndDrop</router-link>｜
         <router-link to="/Geek_VueDraggable">Geek_VueDraggable</router-link>｜
+        <router-link to="/DOM">DOM</router-link>｜
       </nav>
     </section>
     <section class="Firebase_section">

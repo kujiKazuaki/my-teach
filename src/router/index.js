@@ -183,6 +183,11 @@ const routes = [
     name: "vuetify",
     component: () => import("@/Views/CSS/vuetify.vue"),
   },
+  {
+    path: "/DOM",
+    name: "DOM",
+    component: () => import("@/Views/GeekSalon/Teaching/DOM.vue"),
+  },
 ]
 
 const router = createRouter({
