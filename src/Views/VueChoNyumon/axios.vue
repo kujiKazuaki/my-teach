@@ -1,89 +1,62 @@
 <template>
-  <section class="alert alert-primary">
+  <section>
     <h1>{{ data.title }}</h1>
     <p>{{ data.message }}</p>
-    <div class="text-left">
-      <div class="form-group">
-        <label>Email</label>
-        <input type="text" v-model="data.email" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label>Name</label>
-        <input type="text" v-model="data.username" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label>Age</label>
-        <input type="number" v-model="data.age" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label>Tel</label>
-        <input type="text" v-model="data.tel" class="form-control" />
-      </div>
+    <div>
+      <input type="number" v-model="data.id" />
+      <button @click="doClick()">Click</button>
     </div>
-    <ul v-for="(item, key) in data.fire_data" :key="key" class="list-group">
-      <li class="list-group-item text-left">
-        <strong>{{ key }}</strong
-        ><br />{{ item }}
-        <button @click="deleteBtn">削除</button>
-      </li>
-    </ul>
+    <table>
+      <tbody>
+        <tr>
+          <th>User ID</th>
+          <td>
+            {{ data.json_data ? data.json_data.userID : "-" }}
+          </td>
+        </tr>
+        <tr>
+          <th>Title</th>
+          <td>{{ data.json_data ? data.json_data.title : "-" }}</td>
+        </tr>
+        <tr>
+          <th>Body</th>
+          <td>{{ data.json_data ? data.json_data.body : "-" }}</td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 </template>
 
 <script>
 import axios from "axios"
-import { onMounted, reactive } from "vue"
+import { reactive, onMounted } from "vue"
 
-let url = "https://my-teach-89179-default-rtdb.firebaseio.com/person"
+const url = "https://jsonplaceholder.typicode.com/posts/"
 
 export default {
   setup() {
     const data = reactive({
-      title: "Firebase",
-      message: "This is Firebase sample.",
-      email: "",
-      username: "",
-      tel: "",
-      age: 0,
-      fire_data: {},
+      title: "Axios",
+      message: "This is axios sample.",
+      id: 1,
+      json_data: null,
     })
-    const addData = () => {
-      if (data.username == "") {
-        console.log("no-username!")
-        return
-      }
-      let add_url = url + "/" + data.email + ".json"
-      let item = {
-        name: data.username,
-        age: data.age,
-        tel: data.tel,
-      }
-      axios.put(add_url, item).then((re) => {
-        console.log(re)
-        data.email = ""
-        data.username = ""
-        data.age = 0
-        data.tel = ""
-        getData()
-      })
-    }
-    const getData = () => {
-      let all_url = url + ".json"
+    const doClick = () => {
       axios
-        .get(all_url)
+        .get(url + data.id)
         .then((result) => {
-          data.message = "get all data."
-          data.fire_data = result.data
+          data.json_data = result.data
         })
         .catch((error) => {
-          data.message = error
-          data.fire_data = {}
+          data.message = "ERROR!"
+          data.json_data = null
+          console.error(error)
         })
     }
     onMounted(() => {
-      getData()
+      doClick()
     })
-    return { data, addData, getData }
+    return { data, doClick }
   },
 }
 </script>

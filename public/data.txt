@@ -1,0 +1,4 @@
+This is sample text file.
+これは、サンプルで用意したテキストファイルです
+
+--- end. ---
