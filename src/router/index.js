@@ -188,6 +188,11 @@ const routes = [
     name: "DOM",
     component: () => import("@/Views/GeekSalon/Teaching/DOM.vue"),
   },
+  {
+    path: "/chartjs",
+    name: "chartjs",
+    component: () => import("@/Views/Others/chartjs.vue"),
+  },
 ]
 
 const router = createRouter({

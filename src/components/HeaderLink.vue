@@ -31,6 +31,7 @@
         <router-link to="/DragAndDrop_other">DragAndDrop</router-link>｜
         <router-link to="/calculation">calculation</router-link>｜
         <router-link to="/VueDraggable">VueDraggable</router-link>｜
+        <router-link to="/chartjs">chartjs</router-link>｜
       </nav>
     </section>
 
